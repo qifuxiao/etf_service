@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "etf-service"
+version = "0.1.0"
+description = ""
+authors = ["qifuxiao <867225266@qq.com>"]
+readme = "README.md"
+packages = [] 
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"    
+sqlalchemy = "^2.0.44"
+dotenv = "^0.9.9"
+uvicorn = "^0.38.0"
+fastapi = "^0.121.0"
+psycopg2-binary = "^2.9.11"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.2"
+pytest-watch = "^4.2.0"
+alembic = "^1.17.1"
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+priority = "primary"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
