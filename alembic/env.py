@@ -1,23 +1,26 @@
 # alembic/env.py
-from logging.config import fileConfig
+
 import os
+import sys
+from logging.config import fileConfig
 from dotenv import load_dotenv
 from sqlalchemy import engine_from_config, pool
 from alembic import context
-
+# 加入 src 路径
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
 load_dotenv()  # load .env to override DB URL if needed
 
 config = context.config
 
 # Override sqlalchemy.url from .env if present
-from app.config import DATABASE_URL
+from etf_service.src.etf_service.config import DATABASE_URL
 if DATABASE_URL:
     config.set_main_option("sqlalchemy.url", DATABASE_URL)
 
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-from app.database.base import Base  # Base.metadata used by autogenerate
+from etf_service.database.base import Base  # Base.metadata used by autogenerate
 target_metadata = Base.metadata
 
 def run_migrations_offline():

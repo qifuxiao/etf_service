@@ -1,10 +1,10 @@
 # app/main.py
 from fastapi import FastAPI
-from app.logging_config import setup_logging
+from etf_service.logging_config import setup_logging
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import os
-from app.config import UPLOAD_DIR
+from etf_service.config import UPLOAD_DIR
 
 setup_logging()
 app = FastAPI(title="etf_ingest_service")
