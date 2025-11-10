@@ -1,4 +1,4 @@
-# app/logging_config.py
+# src/logging_config.py
 import logging
 
 def setup_logging():
@@ -6,3 +6,6 @@ def setup_logging():
         level=logging.INFO,
         format="%(asctime)s %(levelname)s %(name)s: %(message)s"
     )
+setup_logging()
+# 可创建全局 logger
+logger = logging.getLogger("etf_service")

@@ -9,4 +9,3 @@ class TimestampMixin:
     create_time = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     update_time = Column(DateTime(timezone=True), onupdate=func.now())
 
-from etf_service.models.holding_record import HoldingRecord

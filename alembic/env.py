@@ -20,9 +20,9 @@ if DATABASE_URL:
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-from etf_service.database.base import Base  # Base.metadata used by autogenerate
+from etf_service.src.etf_service.app.database import Base  # Base.metadata used by autogenerate
 target_metadata = Base.metadata
-
+from etf_service.src.etf_service.app.models.holding_record import HoldingRecord
 def run_migrations_offline():
     url = config.get_main_option("sqlalchemy.url")
     context.configure(url=url, target_metadata=target_metadata, literal_binds=True)

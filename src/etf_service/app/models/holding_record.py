@@ -1,5 +1,5 @@
 from sqlalchemy import Column,Date, Float, ForeignKey, Integer, String
-from etf_service.database.base import Base, TimestampMixin
+from etf_service.app.database.base import Base, TimestampMixin
 
 class HoldingRecord(Base,TimestampMixin):
         """
