@@ -1,0 +1,23 @@
+# Ignore Python virtual environments (if any)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.sqlite3
+.idea/
+*.swp
+*.swo
+
+# Ignore local git settings
+/.git/config
+
+# If you use .env files
+.env
+.env.local
+.env.*.local
+
+# If you create build/dist
+/build/
+/dist/
+*.egg-info/

@@ -7,14 +7,20 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import FileResponse
 import os
 from etf_service.config import UPLOAD_DIR
-from etf_service.app.api.v1 import holding
+from etf_service.app.routers import holding_upload
+from etf_service.app.routers import holding_record_api
 
 setup_logging()
 app = FastAPI(title="etf_ingest_service")
 
 # 注册 v1 路由
-app.include_router(holding.router, prefix="/api/v1")
+app.include_router(holding_upload.router, prefix="/api/v1")
+app.include_router(holding_record_api.router, prefix="/api/v1")
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # app 的上级目录
+static_dir = os.path.join(BASE_DIR, "static")  # 指向 src/etf_service/static
+
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
 # Ensure upload dir exists
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
